@@ -36,4 +36,4 @@ module.exports = function parseArgv(argv) {
   }
 
   return result;
-}
+};
