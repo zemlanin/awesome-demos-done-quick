@@ -76,38 +76,37 @@ async function delay(seconds) {
 
 async function present() {
   await osa(() => {
-    const JXArray = (c,r=[],i=0)=>{for(;i<c.length&&i<100;i++){r.push(c[i])};return r}
+    const JXArray = (c, r = [], i = 0) => {
+      for (; i < c.length && i < 100; i++) {
+        r.push(c[i]);
+      }
+      return r;
+    };
 
     const x = JXArray(
       Application("System Events")
-      .processes
-      .byName('Twitterrific')
-      .windows
-      [0]
-      // .uiElements()
-      .entireContents()
+        .processes.byName("Twitterrific")
+        .windows[0] // .uiElements()
+        .entireContents()
     );
 
-    Application("Twitterrific").activate()
+    Application("Twitterrific").activate();
 
     for (const v of x) {
       // console.log(Automation.getDisplayString(v))
-      console.log(v.description(), '|', v.roleDescription())
+      console.log(v.description(), "|", v.roleDescription());
       if (v.description() === "Likes") {
-        v.click()
+        v.click();
       }
     }
 
     Application("System Events")
-      .processes
-      .byName('Twitterrific')
-      .windows
-      [0]
-      .uiElements
-      .whose({description: "Home"})[0].click()
-  })()
+      .processes.byName("Twitterrific")
+      .windows[0].uiElements.whose({ description: "Home" })[0]
+      .click();
+  })();
 
-  return
+  return;
 
   await launchTimer();
 
