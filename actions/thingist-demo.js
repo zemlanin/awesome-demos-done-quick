@@ -3,7 +3,7 @@ module.exports.name = "Thingist Demo";
 command = [
   Path("./thingist.js").toString(),
   () => delay(1),
-  "--project=Shopping",
+  " --project=Shopping",
   () => delay(2)
 ];
 
@@ -30,7 +30,6 @@ module.exports.action = function thingistDemo() {
     }
 
     keystroke(part);
-    keystroke(" ");
   }
 
   keyCode(keyCode.ENTER);
@@ -40,14 +39,17 @@ module.exports.action = function thingistDemo() {
   const Sublime = Application("Sublime Text");
   Sublime.activate();
   delay(0.5);
+
   keystroke("p", { using: "command down" });
   keystroke("thingist.js");
   delay(1);
   keyCode(keyCode.ENTER);
+
   keystroke("p", { using: "command down" });
   keystroke(":188");
   delay(1);
   keyCode(keyCode.ENTER);
+
   for (let i = 0; i < 9; i++) {
     keyCode(keyCode.MINUS, { using: "command down" });
   }
