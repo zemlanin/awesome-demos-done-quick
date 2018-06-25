@@ -11,28 +11,29 @@ const command = [
   `app.includeStandardAdditions = true;`,
   () => delay(1),
   `app.displayNotification("hi")'`,
-  () => delay(1),
-]
-const ENTER = 36
+  () => delay(1)
+];
+const ENTER = 36;
 
 module.exports.action = function terminalNotify() {
-  Application("Terminal").activate()
+  Application("Terminal").activate();
+  delay(0.2);
 
-  const se = Application("System Events")
-  se.keystroke("n", {using: "command down"})
-  delay(5)
+  const se = Application("System Events");
+  se.keystroke("n", { using: "command down" });
+  delay(5);
   for (const part of command) {
-    if (typeof part === 'function') {
-      part()
-      continue
+    if (typeof part === "function") {
+      part();
+      continue;
     }
 
-    for (const symbol of part.split('')) {
-      se.keystroke(symbol)
-      delay(Math.random() * 0.15)
+    for (const symbol of part.split("")) {
+      se.keystroke(symbol);
+      delay(Math.random() * 0.15);
     }
 
-    se.keystroke(' ')
+    se.keystroke(" ");
   }
-  se.keyCode(ENTER)
+  se.keyCode(ENTER);
 };

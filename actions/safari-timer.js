@@ -21,6 +21,13 @@ module.exports.action = function() {
   Safari.activate();
   delay(0.5);
 
+  const newTab = new Safari.Tab();
+
+  tabs.push(newTab);
+  newTab.url = "data:text/html," + encodeURIComponent(timerSrc);
+  Safari.windows[0].currentTab = newTab;
+  delay(0.1);
+
   let initBounds = Safari.windows[0].bounds();
   const targetBounds = {
     x: 0,
@@ -57,11 +64,4 @@ module.exports.action = function() {
     };
   }
   delay(1);
-
-  const newTab = new Safari.Tab();
-
-  tabs.push(newTab);
-  newTab.url = "data:text/html," + encodeURIComponent(timerSrc);
-  Safari.windows[0].currentTab = newTab;
-  delay(0.1);
 };
