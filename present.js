@@ -18,14 +18,14 @@ function require(path) {
 }
 
 function keystroke(...args) {
-  const se = Application("System Events")
+  const se = Application("System Events");
   if (args.length > 1) {
     se.keystroke(...args);
   } else {
-    for (const symbol of args[0].split('')) {
+    for (const symbol of args[0].split("")) {
       if (symbol) {
-        se.keystroke(symbol)
-        delay(0.05 + Math.random() * 0.05)
+        se.keystroke(symbol);
+        delay(0.05 + Math.random() * 0.05);
       }
     }
   }
@@ -33,7 +33,7 @@ function keystroke(...args) {
 
 function keyCode(...args) {
   Application("System Events").keyCode(...args);
-  delay(0.05 + Math.random() * 0.05)
+  delay(0.05 + Math.random() * 0.05);
 }
 // https://eastmanreference.com/complete-list-of-applescript-key-codes
 keyCode.ESC = 53;
@@ -90,9 +90,9 @@ function run(argv) {
     skipUntil = (opts["skip-until"] || opts[""]).toString();
   }
 
-  let only = opts.only
+  let only = opts.only;
   if (only) {
-    skipUntil = only
+    skipUntil = only;
   }
 
   for (const action of actions) {
@@ -115,7 +115,7 @@ function run(argv) {
     }
 
     if (only) {
-      break
+      break;
     }
   }
 }

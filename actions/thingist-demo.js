@@ -5,9 +5,10 @@ const MINUS = 27;
 
 command = [
   Path("./thingist.js").toString(),
-  () => delay(2),
-  '--project=Shopping'
-]
+  () => delay(1),
+  "--project=Shopping",
+  () => delay(2)
+];
 
 module.exports.action = function thingistDemo() {
   const Things = Application("Things");
@@ -23,7 +24,7 @@ module.exports.action = function thingistDemo() {
   }
 
   Application("Terminal").activate();
-  delay(0.2)
+  delay(0.2);
   const se = Application("System Events");
 
   for (const part of command) {

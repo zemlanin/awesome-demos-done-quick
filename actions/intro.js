@@ -2,7 +2,7 @@ const logo = `
 ..........#A#...........
 .......#D#.#D#..........
 ........#Q#....with.JXA.
-`
+`;
 
 const textToType = `
 Awesome Demos Done Quick
@@ -30,12 +30,12 @@ module.exports.action = function intro() {
   Application("System Events").keystroke("        ");
 
   for (const line of logo.split("\n")) {
-    Application("System Events").keystroke(line)
+    Application("System Events").keystroke(line);
     keyCode(keyCode.ENTER);
   }
 
   for (const line of textToType.split("\n")) {
-    keystroke(line)
+    keystroke(line);
     keyCode(keyCode.ENTER);
   }
 };
