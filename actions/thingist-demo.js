@@ -18,10 +18,10 @@ module.exports.action = function thingistDemo() {
   Application("Terminal").activate();
 
   Application("Terminal").doScript(
-    `${Path("./thingist.js").toString()} --project=Shopping`
+    `${Path("./thingist.js").toString()} --project=Shopping | subl -s`
   );
 
-  delay(10);
+  delay(1);
 
   const Sublime = Application("Sublime Text");
   Sublime.activate();
