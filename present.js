@@ -21,8 +21,23 @@ const actions = [
   require("./actions/safari-timer.js"),
   () => delay(2),
   require("./actions/intro.js"),
-  () => delay(5),
-  require("./actions/ls.js")
+  () => delay(5)
+  // require("./actions/terminal-notify.js"),
+
+  // require("./actions/countdown-ui.js"),
+
+  // require("./actions/thingist-lite.js"),
+
+  // require("./actions/script-editor-library.js"),
+
+  // require("./actions/safari-jxa-cookibook.js"),
+
+  // // because it's a mac, there is no `window`
+  // // also no `fetch()`, no `require()`, no `console.dir()`, no async i/o...
+  // // even keycodes are different ¯\_(ツ)_/¯
+  // require("./actions/one-more-js-environment.js"),
+
+  // require("./actions/outro.js"),
 ];
 
 function openInSublime(path) {
