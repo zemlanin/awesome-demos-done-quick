@@ -11,7 +11,7 @@ command = [
 
 module.exports.action = function thingistDemo() {
   const Things = Application("Things");
-  if (Things.running()) {
+  if (Things.running() && Things.windows.length) {
     Things.activate();
     Things.windows[0].bounds = {
       x: 500,

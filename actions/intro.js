@@ -26,7 +26,7 @@ module.exports.action = function intro() {
     delay(Math.random() * 0.2);
   }
 
-  Application("System Events").keystroke("    ");
+  Application("System Events").keystroke("        ");
 
   for (const line of logo.split("\n")) {
     Application("System Events").keystroke(line)
