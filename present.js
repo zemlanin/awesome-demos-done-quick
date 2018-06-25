@@ -21,8 +21,9 @@ const actions = [
   require("./actions/safari-timer.js"),
   () => delay(2),
   require("./actions/intro.js"),
-  () => delay(5)
-  // require("./actions/terminal-notify.js"),
+  () => delay(5),
+  require("./actions/terminal-notify.js"),
+  () => delay(5),
 
   // require("./actions/countdown-ui.js"),
 
