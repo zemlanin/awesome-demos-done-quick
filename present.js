@@ -17,6 +17,32 @@ function require(path) {
   return module.exports;
 }
 
+function keystroke(...args) {
+  const se = Application("System Events")
+  if (args.length > 1) {
+    se.keystroke(...args);
+  } else {
+    for (const symbol of args[0].split('')) {
+      if (symbol) {
+        se.keystroke(symbol)
+        delay(0.05 + Math.random() * 0.1)
+      }
+    }
+  }
+}
+
+function keyCode(...args) {
+  Application("System Events").keyCode(...args);
+  delay(0.05 + Math.random() * 0.1)
+}
+// https://eastmanreference.com/complete-list-of-applescript-key-codes
+keyCode.ESC = 53;
+keyCode.ENTER = 36;
+keyCode.EQUALS = 24;
+keyCode.MINUS = 27;
+keyCode.UP = 126;
+keyCode.TAB = 48;
+
 const actions = [
   require("./actions/safari-timer.js"),
   () => delay(2),

@@ -15,7 +15,7 @@ module.exports.action = function countdownUI() {
     ]
   });
 
-  console.log(poison.buttonReturned);
+  console.log(">", poison.buttonReturned);
 
   const Safari = Application("Safari");
   Safari.doJavaScript(`window.s0 = "${poison.buttonReturned}"`, {
