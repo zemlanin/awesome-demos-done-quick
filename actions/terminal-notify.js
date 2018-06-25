@@ -1,17 +1,20 @@
 module.exports.name = "Terminal notify";
 
 const command = [
-  `osascript`,
+  `osascript \\`,
   () => delay(1),
-  `-l JavaScript`,
+  `-l JavaScript \\`,
   () => delay(1),
-  `-e 'let app = Application.currentApplication();`,
+  `-e '`,
   () => delay(1),
+  `let app = Application.currentApplication();`,
   () => delay(1),
   `app.includeStandardAdditions = true;`,
   () => delay(1),
-  `app.displayNotification("hi")'`,
-  () => delay(1)
+  `app.displayNotification("hi")`,
+  () => delay(1),
+  `'`,
+  () => delay(0.5)
 ];
 const ENTER = 36;
 const EQUALS = 24;
@@ -38,7 +41,6 @@ module.exports.action = function terminalNotify() {
       delay(Math.random() * 0.15);
     }
 
-    se.keystroke(" ");
+    se.keyCode(ENTER);
   }
-  se.keyCode(ENTER);
 };
