@@ -25,7 +25,7 @@ function keystroke(...args) {
     for (const symbol of args[0].split('')) {
       if (symbol) {
         se.keystroke(symbol)
-        delay(0.05 + Math.random() * 0.1)
+        delay(0.05 + Math.random() * 0.05)
       }
     }
   }
@@ -33,7 +33,7 @@ function keystroke(...args) {
 
 function keyCode(...args) {
   Application("System Events").keyCode(...args);
-  delay(0.05 + Math.random() * 0.1)
+  delay(0.05 + Math.random() * 0.05)
 }
 // https://eastmanreference.com/complete-list-of-applescript-key-codes
 keyCode.ESC = 53;
@@ -90,6 +90,11 @@ function run(argv) {
     skipUntil = (opts["skip-until"] || opts[""]).toString();
   }
 
+  let only = opts.only
+  if (only) {
+    skipUntil = only
+  }
+
   for (const action of actions) {
     if (skipUntil) {
       if (
@@ -107,6 +112,10 @@ function run(argv) {
     } else {
       console.log(action.name);
       action.action();
+    }
+
+    if (only) {
+      break
     }
   }
 }
