@@ -20,6 +20,7 @@ module.exports.action = function intro() {
   delay(0.2);
 
   keystroke("n", { using: ["command down"] });
+  keystroke("kb", { using: ["command down"] });
 
   for (let i = 0; i < 15; i++) {
     keyCode(keyCode.EQUALS, { using: ["command down", "shift down"] });
