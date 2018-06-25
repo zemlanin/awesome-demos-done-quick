@@ -30,7 +30,7 @@ const actions = [
 
   // require("./actions/script-editor-library.js"),
 
-  // require("./actions/safari-jxa-cookibook.js"),
+  // require("./actions/safari-jxa-cookbook.js"),
 
   // // because it's a mac, there is no `window`
   // // also no `fetch()`, no `require()`, no `console.dir()`, no async i/o...
