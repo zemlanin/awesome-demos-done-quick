@@ -23,6 +23,7 @@ module.exports.action = function terminalNotify() {
 
   const se = Application("System Events");
   se.keystroke("n", { using: "command down" });
+  se.processes.byName("Terminal").windows.slice(-1)[0].position = [110, 180];
   delay(5);
   for (let i = 0; i < 10; i++) {
     se.keyCode(keyCode.EQUALS, { using: ["command down", "shift down"] });
