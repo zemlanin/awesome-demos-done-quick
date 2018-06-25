@@ -1,10 +1,13 @@
+const logo = `
+..........#A#...........
+.......#D#.#D#..........
+........#Q#....with.JXA.
+`
+
 const textToType = `
+Awesome Demos Done Quick
 
-
-
-awesome demos done quick
-
-beerjs summit 2018
+...beerjs summit 2018...
 
 Anton Verinov / @zemlanin
 `;
@@ -20,20 +23,18 @@ module.exports.action = function intro() {
 
   for (let i = 0; i < 15; i++) {
     keyCode(keyCode.EQUALS, { using: ["command down", "shift down"] });
-    delay(Math.random() * 0.4);
+    delay(Math.random() * 0.2);
   }
 
-  keystroke("    ");
-  for (const line of textToType.split("\n")) {
-    for (const word of line.split(" ")) {
-      if (word) {
-        for (const letter of word.split("").filter(Boolean)) {
-          keystroke(letter);
-        }
+  Application("System Events").keystroke("    ");
 
-        keystroke(" ");
-      }
-    }
+  for (const line of logo.split("\n")) {
+    Application("System Events").keystroke(line)
+    keyCode(keyCode.ENTER);
+  }
+
+  for (const line of textToType.split("\n")) {
+    keystroke(line)
     keyCode(keyCode.ENTER);
   }
 };
