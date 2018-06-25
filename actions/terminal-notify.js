@@ -16,8 +16,6 @@ const command = [
   `'`,
   () => delay(0.5)
 ];
-const ENTER = 36;
-const EQUALS = 24;
 
 module.exports.action = function terminalNotify() {
   Application("Terminal").activate();
@@ -27,7 +25,7 @@ module.exports.action = function terminalNotify() {
   se.keystroke("n", { using: "command down" });
   delay(5);
   for (let i = 0; i < 10; i++) {
-    se.keyCode(EQUALS, { using: ["command down", "shift down"] });
+    se.keyCode(keyCode.EQUALS, { using: ["command down", "shift down"] });
     delay(Math.random() * 0.4);
   }
   for (const part of command) {
@@ -41,6 +39,6 @@ module.exports.action = function terminalNotify() {
       delay(Math.random() * 0.15);
     }
 
-    se.keyCode(ENTER);
+    se.keyCode(keyCode.ENTER);
   }
 };

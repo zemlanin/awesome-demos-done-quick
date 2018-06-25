@@ -1,8 +1,5 @@
 module.exports.name = "Thingist Demo";
 
-const ENTER = 36;
-const MINUS = 27;
-
 command = [
   Path("./thingist.js").toString(),
   () => delay(1),
@@ -25,7 +22,6 @@ module.exports.action = function thingistDemo() {
 
   Application("Terminal").activate();
   delay(0.2);
-  const se = Application("System Events");
 
   for (const part of command) {
     if (typeof part === "function") {
@@ -33,33 +29,26 @@ module.exports.action = function thingistDemo() {
       continue;
     }
 
-    for (const symbol of part.split("")) {
-      se.keystroke(symbol);
-      delay(Math.random() * 0.15);
-    }
-
-    se.keystroke(" ");
+    keystroke(part);
+    keystroke(" ");
   }
 
-  se.keyCode(ENTER);
+  keyCode(keyCode.ENTER);
 
   delay(10);
 
   const Sublime = Application("Sublime Text");
   Sublime.activate();
   delay(0.5);
-  se.keystroke("p", { using: "command down" });
-  delay(0.5);
-  se.keystroke("thingist.js");
+  keystroke("p", { using: "command down" });
+  keystroke("thingist.js");
   delay(1);
-  se.keyCode(ENTER);
-  se.keystroke("p", { using: "command down" });
-  delay(0.5);
-  se.keystroke(":188");
+  keyCode(keyCode.ENTER);
+  keystroke("p", { using: "command down" });
+  keystroke(":188");
   delay(1);
-  se.keyCode(ENTER);
+  keyCode(keyCode.ENTER);
   for (let i = 0; i < 9; i++) {
-    se.keyCode(MINUS, { using: "command down" });
-    delay(Math.random() * 0.4);
+    keyCode(keyCode.MINUS, { using: "command down" });
   }
 };
