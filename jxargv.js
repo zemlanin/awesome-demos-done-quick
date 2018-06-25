@@ -16,7 +16,7 @@ module.exports = function parseArgv(argv) {
 
       result[key] = value;
 
-      currentKey = null;
+      currentKey = "";
       continue;
     }
 

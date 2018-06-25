@@ -24,10 +24,9 @@ const actions = [
   () => delay(5),
   require("./actions/terminal-notify.js"),
   () => delay(5),
-  require("./actions/countdown-ui.js")
-  // () => delay(5),
-
-  // require("./actions/thingist-lite.js"),
+  require("./actions/countdown-ui.js"),
+  () => delay(2),
+  require("./actions/thingist-demo.js")
 
   // require("./actions/script-editor-library.js"),
 
