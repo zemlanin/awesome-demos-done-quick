@@ -1,5 +1,20 @@
 module.exports.name = "Safari Timer";
 
+// https://zemlan.in/tweetimer-minification.html
+// '\u{1F37B}' == '🍻'
+const timerSrc = `
+<body onload="((t,i,m,e,r=()=>{
+e=(new Date-m)/1e3
+e=e<i?e:i
+t.d['style'].width=\`$\{100*(i-e)/i}%\`
+e=i-e|0
+t.t.innerText=e?\`$\{e/60|0}:\`+(e%60>9?'':0)+e%60:t.s0||'\\u{1F37B}'
+e&&setTimeout(r,30)
+})=>r())(this,300,new Date)">
+<div style=height:10%;background:#000 id=d>
+<p style="font:70vh futura" id=t>
+`;
+
 module.exports.action = function() {
   const Safari = Application("Safari");
   const tabs = Safari.windows[0].tabs;
@@ -46,8 +61,7 @@ module.exports.action = function() {
   const newTab = new Safari.Tab();
 
   tabs.push(newTab);
-  newTab.url =
-    "data:text/html;base64,PGJvZHkgb25sb2FkPSIoKHQsaSxtLGUscj0oKT0+ewplPShuZXcgRGF0ZS1tKS8xZTMKZT1lPGk/ZTppCnQuZFsnc3R5bGUnXS53aWR0aD1gJHsxMDAqKGktZSkvaX0lYAplPWktZXwwCnQudC5pbm5lclRleHQ9YCR7ZS82MHwwfTpgKyhlJTYwPjk/YGA6MCkrZSU2MAplJiZzZXRUaW1lb3V0KHIsMzApCn0pPT5yKCkpKHRoaXMsMzAwLG5ldyBEYXRlKSI+CjxkaXYgc3R5bGU9aGVpZ2h0OjEwJTtiYWNrZ3JvdW5kOiMwMDAgaWQ9ZD4KPHAgc3R5bGU9ImZvbnQ6NzB2aCBmdXR1cmEiIGlkPXQ+";
+  newTab.url = "data:text/html," + encodeURIComponent(timerSrc);
   Safari.windows[0].currentTab = newTab;
   delay(0.1);
 };
