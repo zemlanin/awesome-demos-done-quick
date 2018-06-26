@@ -75,6 +75,11 @@ const actions = [
 function run(argv) {
   const opts = require("./jxargv.js")(argv);
 
+  if (opts.prepare) {
+    require("./prepare.js")();
+    return;
+  }
+
   let skipUntil = null;
   if (opts["skip-until"] || opts[""]) {
     skipUntil = (opts["skip-until"] || opts[""]).toString();
