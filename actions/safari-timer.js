@@ -17,16 +17,11 @@ e&&setTimeout(r,30)
 
 module.exports.action = function() {
   const Safari = Application("Safari");
-  const tabs = Safari.windows[0].tabs;
+
+  const newTab = Safari.Document().make();
+  newTab.url = "data:text/html," + encodeURIComponent(timerSrc);
   Safari.activate();
   delay(0.5);
-
-  const newTab = new Safari.Tab();
-
-  tabs.push(newTab);
-  newTab.url = "data:text/html," + encodeURIComponent(timerSrc);
-  Safari.windows[0].currentTab = newTab;
-  delay(0.1);
 
   let initBounds = Safari.windows[0].bounds();
   const targetBounds = {
