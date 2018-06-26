@@ -18,12 +18,12 @@ e&&setTimeout(r,30)
 module.exports.action = function() {
   const Safari = Application("Safari");
 
-  const newTab = Safari.Document().make();
-  newTab.url = "data:text/html," + encodeURIComponent(timerSrc);
+  const newDoc = Safari.Document().make();
+  const newWindow = Safari.windows[newDoc.name()];
+  newWindow.currentTab.url = "data:text/html," + encodeURIComponent(timerSrc);
   Safari.activate();
-  delay(0.5);
 
-  let initBounds = Safari.windows[0].bounds();
+  let initBounds = newWindow.bounds();
   const targetBounds = {
     x: 0,
     y: 0,
@@ -32,7 +32,7 @@ module.exports.action = function() {
   };
 
   while (Math.abs(initBounds.x - targetBounds.x) > 5) {
-    Safari.windows[0].bounds = initBounds = {
+    newWindow.bounds = initBounds = {
       ...initBounds,
       x:
         initBounds.x -
@@ -46,7 +46,7 @@ module.exports.action = function() {
   }
 
   while (Math.abs(initBounds.width - targetBounds.width) > 5) {
-    Safari.windows[0].bounds = initBounds = {
+    newWindow.bounds = initBounds = {
       ...initBounds,
       width:
         initBounds.width -
