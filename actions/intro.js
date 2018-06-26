@@ -19,6 +19,10 @@ module.exports.action = function intro() {
   subl.activate();
   delay(0.2);
 
+  const se = Application("System Events");
+  se.processes.byName("Sublime Text").windows.slice(-1)[0].position = [310, 0];
+  se.processes.byName("Sublime Text").windows.slice(-1)[0].size = [970, 680];
+
   keystroke("n", { using: ["command down"] });
   keystroke("kb", { using: ["command down"] });
 
@@ -27,10 +31,10 @@ module.exports.action = function intro() {
     delay(Math.random() * 0.2);
   }
 
-  Application("System Events").keystroke("        ");
+  se.keystroke("        ");
 
   for (const line of logo.split("\n")) {
-    Application("System Events").keystroke(line);
+    se.keystroke(line);
     keyCode(keyCode.ENTER);
   }
 
