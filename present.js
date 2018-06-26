@@ -40,6 +40,9 @@ keyCode.ESC = 53;
 keyCode.ENTER = 36;
 keyCode.EQUALS = 24;
 keyCode.MINUS = 27;
+keyCode.LEFT = 123;
+keyCode.RIGHT = 124;
+keyCode.DOWN = 125;
 keyCode.UP = 126;
 keyCode.TAB = 48;
 
@@ -52,18 +55,21 @@ const actions = [
   () => delay(5),
   require("./actions/countdown-ui.js"),
   () => delay(2),
-  require("./actions/thingist-demo.js")
-
-  // require("./actions/script-editor-library.js"),
+  require("./actions/thingist-demo.js"),
+  () => delay(2),
+  require("./actions/script-editor-library.js"),
 
   // require("./actions/safari-jxa-cookbook.js"),
 
   // // because it's a mac, there is no `window`
   // // also no `fetch()`, no `require()`, no `console.dir()`, no async i/o...
   // // even keycodes are different ¯\_(ツ)_/¯
+  // // console.log("Терминал") => –Ґ–µ—А–Љ–Є–љ–∞–ї
   // require("./actions/one-more-js-environment.js"),
 
   // require("./actions/outro.js"),
+
+  () => delay(0.1)
 ];
 
 function openInSublime(path) {
