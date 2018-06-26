@@ -24,9 +24,15 @@ module.exports.action = function scriptEditorLibrary() {
   terminalRow.select();
   delay(0.1);
   keyCode(keyCode.ENTER);
+  delay(0.1);
+  const terminalLibraryWindow = Application("System Events")
+    .processes.byName("Script Editor")
+    .windows.byName("Terminal");
+  terminalLibraryWindow.position = [310, 100];
+  terminalLibraryWindow.size = [740, 600];
   delay(1);
   keyCode(keyCode.TAB);
   delay(0.5);
   keyCode(keyCode.DOWN);
-  delay(0.5);
+  delay(5);
 };
