@@ -59,7 +59,7 @@ const actions = [
   () => delay(2),
   require("./actions/script-editor-library.js"),
   () => delay(2),
-  require("./actions/safari-jxa-cookbook.js"),
+  require("./actions/docs.js"),
 
   // // because it's a mac, there is no `window`
   // // also no `fetch()`, no `require()`, no `console.dir()`, no async i/o...
