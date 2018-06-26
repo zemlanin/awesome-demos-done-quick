@@ -60,16 +60,10 @@ const actions = [
   require("./actions/script-editor-library.js"),
   () => delay(2),
   require("./actions/docs.js"),
-
-  // // because it's a mac, there is no `window`
-  // // also no `fetch()`, no `require()`, no `console.dir()`, no async i/o...
-  // // even keycodes are different ¯\_(ツ)_/¯
-  // // console.log("Терминал") => –Ґ–µ—А–Љ–Є–љ–∞–ї
-  // require("./actions/one-more-js-environment.js"),
-
-  // require("./actions/outro.js"),
-
-  () => delay(0.1)
+  () => delay(2),
+  require("./actions/one-more-js-environment.js"),
+  () => delay(2),
+  require("./actions/outro.js")
 ];
 
 function run(argv) {
