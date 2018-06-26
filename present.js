@@ -58,8 +58,8 @@ const actions = [
   require("./actions/thingist-demo.js"),
   () => delay(2),
   require("./actions/script-editor-library.js"),
-
-  // require("./actions/safari-jxa-cookbook.js"),
+  () => delay(2),
+  require("./actions/safari-jxa-cookbook.js"),
 
   // // because it's a mac, there is no `window`
   // // also no `fetch()`, no `require()`, no `console.dir()`, no async i/o...
@@ -71,22 +71,6 @@ const actions = [
 
   () => delay(0.1)
 ];
-
-function openInSublime(path) {
-  const subl = Application("Sublime Text");
-
-  Application("System Events")
-    .processes.byName("Sublime Text")
-    .windows.byActive(true).length;
-
-  Application("System Events").processes.byName(
-    "Sublime Text"
-  ).windows[0].size = [1075, 655];
-
-  Application("System Events").processes.byName(
-    "Sublime Text"
-  ).windows[0].position = [200, 23];
-}
 
 function run(argv) {
   const opts = require("./jxargv.js")(argv);
