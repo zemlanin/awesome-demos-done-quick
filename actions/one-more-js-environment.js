@@ -1,10 +1,11 @@
 module.exports.name = "One more JS environment";
 
 function osascript(str) {
-  Application("System Events").keystroke(`osascript -l JavaScript -e \\\n`);
+  keystroke(`osascript -l JavaScript -e \\`);
+  keyCode(keyCode.ENTER);
   keystroke('"' + str + '"');
   delay(1);
-  keystroke("\n");
+  keyCode(keyCode.ENTER);
 }
 
 function sublOpenAndGotoDefinition(filepath, definition) {
@@ -23,23 +24,21 @@ function sublOpenAndGotoDefinition(filepath, definition) {
 }
 
 function retro() {
-  keystroke("Люблю ретро кодировки");
+  keystroke("Кодировки");
 }
 
 module.exports.action = function oneMoreJSEnvironment() {
-  Application("Terminal").activate()
-  delay(0.2)
-
-  keystroke("n", {using: "command down"})
-  delay(4)
+  Application("Terminal").activate();
+  delay(0.2);
+  keystroke("l", { using: "control down" });
 
   // because it's a mac, there is no `window`
-  osascript(`typeof window`)
-  delay(1)
+  osascript(`typeof window`);
+  delay(1);
 
   // also no `fetch()`, no `require()`, no `console.dir()`, no async i/o...
-  osascript(`[typeof require, typeof fetch, typeof console.dir]`)
-  delay(1)
+  osascript(`[typeof require, typeof fetch, typeof console.dir]`);
+  delay(1);
 
   // console.log("Терминал") => –Ґ–µ—А–Љ–Є–љ–∞–ї
   Application("Sublime Text").activate();

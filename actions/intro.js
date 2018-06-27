@@ -32,8 +32,8 @@ module.exports.action = function intro() {
   se.processes.byName("Sublime Text").windows.slice(-1)[0].position = [310, 0];
   se.processes.byName("Sublime Text").windows.slice(-1)[0].size = [970, 680];
 
-  keystroke("n", { using: ["command down"] });
-  keystroke("kb", { using: ["command down"] });
+  keystroke("n", { using: "command down" });
+  keystroke("kb", { using: "command down" });
 
   for (let i = 0; i < 15; i++) {
     keyCode(keyCode.EQUALS, { using: ["command down", "shift down"] });

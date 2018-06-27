@@ -22,6 +22,7 @@ module.exports.action = function thingistDemo() {
 
   Application("Terminal").activate();
   delay(0.2);
+  keystroke("l", { using: "control down" });
 
   for (const part of command) {
     if (typeof part === "function") {

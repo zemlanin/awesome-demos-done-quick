@@ -20,6 +20,7 @@ const command = [
 module.exports.action = function terminalNotify() {
   Application("Terminal").activate();
   delay(0.2);
+  keystroke("l", { using: "control down" });
 
   const se = Application("System Events");
   se.keystroke("n", { using: "command down" });
