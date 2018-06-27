@@ -23,11 +23,10 @@ module.exports.action = function terminalNotify() {
 
   const se = Application("System Events");
   se.keystroke("n", { using: "command down" });
-  se.processes.byName("Terminal").windows.slice(-1)[0].position = [110, 180];
+  se.processes.byName("Terminal").windows.slice(-1)[0].position = [110, 200];
   delay(5);
-  for (let i = 0; i < 10; i++) {
-    se.keyCode(keyCode.EQUALS, { using: ["command down", "shift down"] });
-    delay(Math.random() * 0.4);
+  for (let i = 0; i < 7; i++) {
+    keyCode(keyCode.EQUALS, { using: ["command down", "shift down"] });
   }
   for (const part of command) {
     if (typeof part === "function") {
@@ -35,11 +34,7 @@ module.exports.action = function terminalNotify() {
       continue;
     }
 
-    for (const symbol of part.split("")) {
-      se.keystroke(symbol);
-      delay(Math.random() * 0.15);
-    }
-
-    se.keyCode(keyCode.ENTER);
+    keystroke(part);
+    keyCode(keyCode.ENTER);
   }
 };
