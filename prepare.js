@@ -48,8 +48,8 @@ module.exports = function prepare() {
     console.log("\u2714", app);
   }
 
-  console.log("\u273f", "KeyCastr", "\n\t", "Check for displayed \u2318 A")
-  delay(0.5)
-  se.keystroke("a", { using: "command down" })
-  delay(1)
+  console.log("\u273f", "KeyCastr", "\n\t", "Check for displayed \u2318 A");
+  delay(0.5);
+  se.keystroke("a", { using: "command down" });
+  delay(1);
 };
