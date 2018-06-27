@@ -9,7 +9,12 @@ function require(path) {
   app.closeAccess(path);
 
   const module = {
-    exports: {}
+    exports: {},
+    filepath: Path(path),
+    filename: path
+      .toString()
+      .split("/")
+      .pop()
   };
   const exports = module.exports;
   eval(contents);
