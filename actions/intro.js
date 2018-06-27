@@ -14,8 +14,14 @@ Anton Verinov / @zemlanin
 
 module.exports.name = "Introduction";
 module.exports.action = function intro() {
+  const se = Application("System Events");
   const Finder = Application("Finder");
   Finder.open(Path("./img/sgdq.png"));
+  delay(0.5);
+  se.processes.whose({ name: "Preview" })[0].windows.slice(-1)[0].position = [
+    310,
+    0
+  ];
   delay(10);
   keystroke("w", { using: "command down" });
   delay(1);
@@ -24,7 +30,6 @@ module.exports.action = function intro() {
   subl.activate();
   delay(0.2);
 
-  const se = Application("System Events");
   se.processes.byName("Sublime Text").windows.slice(-1)[0].position = [310, 0];
   se.processes.byName("Sublime Text").windows.slice(-1)[0].size = [970, 680];
 
