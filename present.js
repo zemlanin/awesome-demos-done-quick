@@ -3,6 +3,9 @@
 const app = Application.currentApplication();
 app.includeStandardAdditions = true;
 
+// "🍻"; used in `safari-timer`, `countdown-ui` and `outro`
+let poison = "\u{1F37B}";
+
 function require(path) {
   const handle = app.openForAccess(path);
   const contents = app.read(handle);

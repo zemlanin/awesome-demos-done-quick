@@ -4,7 +4,8 @@ module.exports.action = function countdownUI() {
   const app = Application.currentApplication();
   app.includeStandardAdditions = true;
 
-  const poison = app.displayDialog("Choose your poison", {
+  // `poison` is in global scope (defined in present.js)
+  poison = app.displayDialog("Choose your poison", {
     buttons: [
       // "🍻"
       "\u{1F37B}",
@@ -13,12 +14,12 @@ module.exports.action = function countdownUI() {
       // "🍷"
       "\u{1F377}"
     ]
-  });
+  }).buttonReturned;
 
-  console.log(">", poison.buttonReturned);
+  console.log(">", poison);
 
   const Safari = Application("Safari");
-  Safari.doJavaScript(`window.s0 = "${poison.buttonReturned}"`, {
+  Safari.doJavaScript(`window.poison = "${poison}"`, {
     in: Safari.windows[0].currentTab
   });
 };
