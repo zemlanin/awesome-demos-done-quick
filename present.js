@@ -36,13 +36,16 @@ function keystroke(...args) {
   }
 }
 
+// https://eastmanreference.com/complete-list-of-applescript-key-codes
 function keyCode(...args) {
   Application("System Events").keyCode(...args);
   delay(0.05 + Math.random() * 0.05);
 }
-// https://eastmanreference.com/complete-list-of-applescript-key-codes
+// instead of 27
 keyCode.ESC = 53;
+//   instead of 13
 keyCode.ENTER = 36;
+
 keyCode.EQUALS = 24;
 keyCode.MINUS = 27;
 keyCode.LEFT = 123;
