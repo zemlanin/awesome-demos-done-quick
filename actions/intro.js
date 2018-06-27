@@ -1,7 +1,7 @@
 const logo = `
 .......#A#..............
 ....#D#.#D#.............
-.....#Q#......with.JXA..
+.....#Q#......with JXA..
 `;
 
 const textToType = `
@@ -14,8 +14,13 @@ Anton Verinov / @zemlanin
 
 module.exports.name = "Introduction";
 module.exports.action = function intro() {
+  const Finder = Application("Finder");
+  Finder.open(Path("./img/sgdq.png"));
+  delay(10);
+  keystroke("w", { using: "command down" });
+  delay(1);
+
   const subl = Application("Sublime Text");
-  subl.includeStandardAdditions = true;
   subl.activate();
   delay(0.2);
 
