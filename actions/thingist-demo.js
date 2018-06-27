@@ -41,11 +41,13 @@ module.exports.action = function thingistDemo() {
   delay(0.5);
 
   keystroke("p", { using: "command down" });
+  delay(0.5);
   keystroke("thingist.js");
   delay(1);
   keyCode(keyCode.ENTER);
 
   keystroke("p", { using: "command down" });
+  delay(0.5);
   keystroke(":188");
   delay(1);
   keyCode(keyCode.ENTER);
