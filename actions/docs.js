@@ -7,17 +7,24 @@ const releaseNotesScreenshot = Path("./img/jxa-release-notes.png");
 const cookbookScreenshot = Path("./img/jxa-cookbook.png");
 
 module.exports.action = function docs() {
-  const Terminal = Application("Terminal");
   const se = Application("System Events");
-  Terminal.activate();
+  const Finder = Application("Finder");
+
+  Finder.open(releaseNotesScreenshot);
+  se.processes.whose({ name: "Preview" })[0].windows.slice(-1)[0].position = [
+    140,
+    170
+  ];
+  delay(10);
+  keystroke("w", { using: "command down" });
   delay(0.5);
 
-  se.keystroke(
-    `qlmanage -p "${releaseNotesScreenshot}" "${cookbookScreenshot}" 2> /dev/null`
-  );
-  se.keyCode(keyCode.ENTER);
-  delay(5);
-  se.keyCode(keyCode.RIGHT);
-  delay(5);
-  se.keyCode(keyCode.ESC);
+  Finder.open(cookbookScreenshot);
+  se.processes.whose({ name: "Preview" })[0].windows.slice(-1)[0].position = [
+    140,
+    170
+  ];
+  delay(10);
+  keystroke("w", { using: "command down" });
+  delay(0.5);
 };
