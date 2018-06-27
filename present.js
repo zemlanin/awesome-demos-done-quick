@@ -97,10 +97,10 @@ function run(argv) {
     }
 
     if (typeof action === "function") {
-      action();
+      action.call(this);
     } else {
       console.log(action.name);
-      action.action();
+      action.action.call(this);
     }
 
     if (only) {
