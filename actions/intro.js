@@ -1,15 +1,15 @@
 const logo = `
-.......#A#..............
-....#D#.#D#.............
-.....#Q#......with JXA..
+|       #A#
+|    #D# #D#
+|     #Q#       with JXA
 `;
 
 const textToType = `
 Awesome Demos Done Quick
 
-...beerjs summit 2018...
+Anton Verinov  @zemlanin
 
-Anton Verinov / @zemlanin
+BeerJS Summit Minsk 2018
 `;
 
 module.exports.name = "Introduction";
@@ -17,14 +17,13 @@ module.exports.action = function intro() {
   const se = Application("System Events");
   const Finder = Application("Finder");
   Finder.open(Path("./img/sgdq.png"));
-  delay(0.5);
   se.processes.whose({ name: "Preview" })[0].windows.slice(-1)[0].position = [
     310,
     0
   ];
   delay(10);
   keystroke("w", { using: "command down" });
-  delay(1);
+  delay(0.5);
 
   const subl = Application("Sublime Text");
   subl.activate();
@@ -38,14 +37,13 @@ module.exports.action = function intro() {
 
   for (let i = 0; i < 15; i++) {
     keyCode(keyCode.EQUALS, { using: ["command down", "shift down"] });
-    delay(Math.random() * 0.2);
   }
 
   se.keystroke("        ");
 
   for (const line of logo.split("\n")) {
-    se.keystroke(line);
-    keyCode(keyCode.ENTER);
+    keystroke(line);
+    se.keyCode(keyCode.ENTER);
   }
 
   for (const line of textToType.split("\n")) {
