@@ -36,7 +36,7 @@ module.exports.action = function oneMoreJSEnvironment() {
   osascript(`typeof window`);
   delay(1);
 
-  // also no `fetch()`, no `require()`, no `console.dir()`, no async i/o...
+  // also no `require()`, no `fetch()`, no `console.dir()`, no async i/o...
   osascript(`[typeof require, typeof fetch, typeof console.dir]`);
   delay(1);
 
