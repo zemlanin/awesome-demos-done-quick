@@ -64,6 +64,8 @@ const actions = [
   () => delay(5),
   require("./actions/intro.js"),
   () => delay(5),
+  require("./actions/osx-yosemite.js"),
+  () => delay(5),
   require("./actions/terminal-notify.js"),
   () => delay(5),
   require("./actions/countdown-ui.js"),
