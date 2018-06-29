@@ -13,8 +13,10 @@ module.exports.action = function countdownUI() {
       "\u{1F943}",
       // "🍷"
       "\u{1F377}"
-    ]
-  }).buttonReturned;
+    ],
+    defaultButton: poison,
+    givingUpAfter: 3
+  }).buttonReturned || poison;
 
   console.log(">", poison);
 
