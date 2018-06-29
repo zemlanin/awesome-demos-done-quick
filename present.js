@@ -60,6 +60,8 @@ keyCode.TAB = 48;
 const actions = [
   require("./actions/safari-timer.js"),
   () => delay(2),
+  require("./actions/tasbot.js"),
+  () => delay(5),
   require("./actions/intro.js"),
   () => delay(5),
   require("./actions/terminal-notify.js"),
