@@ -66,5 +66,10 @@ module.exports.action = function oneMoreJSEnvironment() {
     keyCode.name
   );
 
-  delay(6);
+  delay(5);
+
+  // plus, there's no async I/O
+  app.displayDialog("sync i/o only", {
+    buttons: ["it has been long enough"]
+  });
 };
