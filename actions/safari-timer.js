@@ -10,7 +10,7 @@ t.d['style'].width=\`$\{100*(i-e)/i}%\`
 e=i-e|0
 t.t.innerText=e?\`$\{e/60|0}:\`+(e%60>9?'':0)+e%60:t.poison||'\\u{1F37B}'
 e>0&&setTimeout(r,30)
-})=>r())(this,300,new Date)">
+})=>r())(this,250,new Date)">
 <div style=height:10%;background:#000 id=d>
 <p style="font:70vh futura" id=t>
 `;
