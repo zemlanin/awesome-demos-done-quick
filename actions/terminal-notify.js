@@ -8,11 +8,11 @@ const command = [
   `-e '`,
   () => delay(1),
   `let app = Application.currentApplication();`,
-  () => delay(5),
+  () => delay(2),
   `app.includeStandardAdditions = true;`,
   () => delay(5),
   `app.displayNotification("hi");`,
-  () => delay(5),
+  () => delay(4),
   `'`,
   () => delay(0.5)
 ];
@@ -28,13 +28,23 @@ module.exports.action = function terminalNotify() {
   for (let i = 0; i < 7; i++) {
     keyCode(keyCode.EQUALS, { using: ["command down", "shift down"] });
   }
+
+  let slowSemi = true;
   for (const part of command) {
     if (typeof part === "function") {
       part();
       continue;
     }
 
-    keystroke(part);
+    if (slowSemi && part.endsWith(";")) {
+      slowSemi = false;
+      keystroke(part.slice(0, part.length - 1));
+      delay(4);
+      keystroke(";");
+    } else {
+      keystroke(part);
+    }
+
     keyCode(keyCode.ENTER);
   }
 };
