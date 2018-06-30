@@ -5,18 +5,19 @@ module.exports.action = function countdownUI() {
   app.includeStandardAdditions = true;
 
   // `poison` is in global scope (defined in present.js)
-  poison = app.displayDialog("Choose your poison", {
-    buttons: [
-      // "🍻"
-      "\u{1F37B}",
-      // "🥃"
-      "\u{1F943}",
-      // "🍷"
-      "\u{1F377}"
-    ],
-    defaultButton: poison,
-    givingUpAfter: 3
-  }).buttonReturned || poison;
+  poison =
+    app.displayDialog("Choose your poison", {
+      buttons: [
+        // "🍻"
+        "\u{1F37B}",
+        // "🥃"
+        "\u{1F943}",
+        // "🍷"
+        "\u{1F377}"
+      ],
+      defaultButton: poison,
+      givingUpAfter: 3
+    }).buttonReturned || poison;
 
   console.log(">", poison);
 

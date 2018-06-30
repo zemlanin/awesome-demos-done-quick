@@ -13,15 +13,14 @@ module.exports = function parseArgv(argv) {
 
     if (ARGV_EQ.test(arg)) {
       const [_, key, value] = arg.match(ARGV_EQ);
-
       result[key] = value;
-
       currentKey = "";
       continue;
     }
 
     if (ARGV_KEY.test(arg)) {
       const [_, key] = arg.match(ARGV_KEY);
+      result[key] = true;
       currentKey = key;
       continue;
     }

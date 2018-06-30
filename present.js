@@ -57,9 +57,12 @@ keyCode.DOWN = 125;
 keyCode.UP = 126;
 keyCode.TAB = 48;
 
+const safariTimer = require("./actions/safari-timer.js");
+
 const actions = [
-  require("./actions/safari-timer.js"),
-  () => delay(2),
+  // can be unshifted via `--with-timer` option
+  // require("./actions/safari-timer.js"),
+  // () => delay(2),
   require("./actions/tasbot.js"),
   () => delay(5),
   require("./actions/intro.js"),
@@ -97,6 +100,14 @@ function run(argv) {
   let only = opts.only;
   if (only) {
     skipUntil = only;
+  }
+
+  if (
+    opts["with-timer"] ||
+    (skipUntil &&
+      safariTimer.name.toLowerCase().indexOf(skipUntil.toLowerCase()))
+  ) {
+    actions.unshift(safariTimer, () => delay(2));
   }
 
   for (const action of actions) {
