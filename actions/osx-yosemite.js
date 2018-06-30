@@ -10,9 +10,9 @@ module.exports.action = function docs() {
   Finder.open(releaseNotesScreenshot);
   se.processes.whose({ name: "Preview" })[0].windows.slice(-1)[0].position = [
     140,
-    130
+    50
   ];
-  delay(10);
+  delay(15);
   keystroke("w", { using: "command down" });
   delay(0.5);
 };

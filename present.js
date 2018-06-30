@@ -64,13 +64,13 @@ const actions = [
   // require("./actions/safari-timer.js"),
   // () => delay(2),
   require("./actions/tasbot.js"),
-  () => delay(5),
+  () => delay(2),
   require("./actions/intro.js"),
-  () => delay(5),
+  () => delay(2),
   require("./actions/osx-yosemite.js"),
-  () => delay(5),
+  () => delay(2),
   require("./actions/terminal-notify.js"),
-  () => delay(5),
+  () => delay(2),
   require("./actions/countdown-ui.js"),
   () => delay(2),
   require("./actions/thingist-demo.js"),
@@ -107,7 +107,7 @@ function run(argv) {
     (skipUntil &&
       safariTimer.name.toLowerCase().indexOf(skipUntil.toLowerCase()))
   ) {
-    actions.unshift(safariTimer, () => delay(2));
+    actions.unshift(safariTimer);
   }
 
   for (const action of actions) {

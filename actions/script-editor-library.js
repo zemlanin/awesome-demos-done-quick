@@ -34,6 +34,6 @@ module.exports.action = function scriptEditorLibrary() {
   keyCode(keyCode.TAB);
   delay(0.5);
   keyCode(keyCode.DOWN);
-  delay(5);
+  delay(8);
   keystroke("w", { using: "command down" });
 };

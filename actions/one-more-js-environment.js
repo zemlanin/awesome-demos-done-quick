@@ -34,11 +34,11 @@ module.exports.action = function oneMoreJSEnvironment() {
 
   // because it's a mac, there is no `window`
   osascript(`typeof window`);
-  delay(1);
+  delay(4);
 
   // also no `require()`, no `fetch()`, no `console.dir()`, no async i/o...
   osascript(`[typeof require, typeof fetch, typeof console.dir]`);
-  delay(1);
+  delay(4);
 
   // console.log("Терминал") => –Ґ–µ—А–Љ–Є–љ–∞–ї
   Application("Sublime Text").activate();
@@ -48,6 +48,7 @@ module.exports.action = function oneMoreJSEnvironment() {
   keystroke(" ", { using: "command down" });
   delay(0.2);
   retro();
+  delay(3);
   keystroke(" ", { using: "command down" });
   delay(0.1);
 
@@ -64,4 +65,6 @@ module.exports.action = function oneMoreJSEnvironment() {
       .pop(),
     keyCode.name
   );
+
+  delay(6);
 };

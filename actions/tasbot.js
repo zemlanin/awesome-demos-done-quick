@@ -5,8 +5,8 @@ module.exports.action = function intro() {
   const Finder = Application("Finder");
   Finder.open(Path("./img/sgdq.png"));
   se.processes.whose({ name: "Preview" })[0].windows.slice(-1)[0].position = [
-    310,
-    0
+    140,
+    50
   ];
   delay(10);
   keystroke("w", { using: "command down" });
@@ -14,8 +14,8 @@ module.exports.action = function intro() {
 
   Finder.open(Path("./img/tasbot.jpg"));
   se.processes.whose({ name: "Preview" })[0].windows.slice(-1)[0].position = [
-    310,
-    0
+    140,
+    50
   ];
   delay(10);
   keystroke("w", { using: "command down" });

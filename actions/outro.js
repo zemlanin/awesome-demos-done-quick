@@ -31,6 +31,10 @@ module.exports.action = function outro() {
   keystroke("n", { using: "command down" });
   delay(0.2);
 
+  for (let i = 0; i < 8; i++) {
+    keyCode(keyCode.EQUALS, { using: ["command down", "shift down"] });
+  }
+
   const se = Application("System Events");
   se.keystroke("        ");
 

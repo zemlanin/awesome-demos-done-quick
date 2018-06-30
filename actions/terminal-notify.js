@@ -8,11 +8,11 @@ const command = [
   `-e '`,
   () => delay(1),
   `let app = Application.currentApplication();`,
-  () => delay(1),
+  () => delay(5),
   `app.includeStandardAdditions = true;`,
-  () => delay(1),
+  () => delay(5),
   `app.displayNotification("hi")`,
-  () => delay(1),
+  () => delay(5),
   `'`,
   () => delay(0.5)
 ];
@@ -20,7 +20,6 @@ const command = [
 module.exports.action = function terminalNotify() {
   Application("Terminal").activate();
   delay(0.2);
-  keystroke("l", { using: "control down" });
 
   const se = Application("System Events");
   se.keystroke("n", { using: "command down" });
