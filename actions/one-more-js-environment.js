@@ -54,7 +54,7 @@ module.exports.action = function oneMoreJSEnvironment() {
 
   sublOpenAndGotoDefinition(module.filename, retro.name);
 
-  delay(5);
+  delay(4);
 
   // even keycodes are different ¯\_(ツ)_/¯
   sublOpenAndGotoDefinition(
@@ -70,6 +70,7 @@ module.exports.action = function oneMoreJSEnvironment() {
 
   // plus, there's no async I/O
   app.displayDialog("sync i/o only", {
-    buttons: ["it has been long enough"]
+    buttons: ["it has been long enough"],
+    givingUpAfter: 5
   });
 };

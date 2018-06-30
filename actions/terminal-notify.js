@@ -11,7 +11,7 @@ const command = [
   () => delay(5),
   `app.includeStandardAdditions = true;`,
   () => delay(5),
-  `app.displayNotification("hi")`,
+  `app.displayNotification("hi");`,
   () => delay(5),
   `'`,
   () => delay(0.5)

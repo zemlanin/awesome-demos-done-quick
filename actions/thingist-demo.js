@@ -57,5 +57,5 @@ module.exports.action = function thingistDemo() {
     keyCode(keyCode.MINUS, { using: "command down" });
   }
 
-  delay(5);
+  delay(4);
 };
