@@ -8,7 +8,7 @@ const command = [
   `-e '`,
   () => delay(1),
   `let app = Application.currentApplication();`,
-  () => delay(2),
+  () => delay(4),
   `app.includeStandardAdditions = true;`,
   () => delay(5),
   `app.displayNotification("hi");`,
@@ -39,7 +39,7 @@ module.exports.action = function terminalNotify() {
     if (slowSemi && part.endsWith(";")) {
       slowSemi = false;
       keystroke(part.slice(0, part.length - 1));
-      delay(4);
+      delay(2);
       keystroke(";");
     } else {
       keystroke(part);
